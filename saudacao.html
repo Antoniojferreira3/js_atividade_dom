@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saudação de acordo com horario</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        font-size: 1.5em;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Saudação</h1>
+    <p id="saudacao"></p>
+
+    <script>
+          <!-- //função para determinar a saudação de acordo com horário -->
+          function obterSaudacao() {
+      const hora = new Date().gethours(); // pega a hora atual
+      let saudacao = "";
+
+      // define saudação de acordo com a hora do dia
+      if (hora >=0 && hora < 12){
+        saudacao = "Bom dia!";
+          }
+          else if (hora >= 12 && hora < 18) {
+            saudacao = "Boa tarde!";
+        }else{
+            saudacao = "Boa noite!";
+          }
+        //   exibe saudação no paragrafo com id "saudacao"
+          document.getElementById("saudacao").textContent = saudacao;
+        }
+
+        //chama a função ao carregar a página
+        window.onload = obterSaudacao;
+    </script>
+  </body>
+</html>

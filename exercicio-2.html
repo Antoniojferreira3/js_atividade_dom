@@ -1,104 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verificador de Ano Bissexto</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url(imagens/Fundo.jpg),
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        background-size: cover;
+        background-position: center; /* Centraliza a imagem */
+        background-attachment: fixed; /* Deixa a imagem fixa ao rolar a página */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+      }
 
-        h1 {
-            color: #333;
-        }
+      h1 {
+        color: #333;
+      }
 
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
 
-        input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            width: 80%;
-        }
+      input[type="number"] {
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        width: 80%;
+      }
 
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            width: 80%;
-        }
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 80%;
+      }
 
-        button:hover {
-            background-color: #45a049;
-        }
+      button:hover {
+        background-color: #45a049;
+      }
 
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+      }
 
-        .result.correct {
-            color: green;
-        }
+      .result.correct {
+        color: green;
+      }
 
-        .result.incorrect {
-            color: red;
-        }
-
+      .result.incorrect {
+        color: red;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Verificador de Ano Bissexto</h1>
     <div class="container">
-        <p>Digite um ano para verificar se ele é bissexto:</p>
-        <input type="number" id="Ano" placeholder="Digite o ano" />
-        <button onclick="checarAno()">Verificar</button>
-        <div class="result" id="result"></div>
+      <p>Digite um ano para verificar se ele é bissexto:</p>
+      <input type="number" id="Ano" placeholder="Digite o ano" />
+      <button onclick="checarAno()">Verificar</button>
+      <div class="result" id="result"></div>
     </div>
 
     <script>
-        // Função que verifica se o ano é bissexto
-        function checarAno() {
-            const Ano = document.getElementById('Ano').value;
-            const resultDiv = document.getElementById('result');
+      // Função que verifica se o ano é bissexto
+      function checarAno() {
+        const Ano = document.getElementById("Ano").value;
+        const resultDiv = document.getElementById("result");
 
-            if (!Ano) {
-                resultDiv.textContent = "Por favor, insira um ano!";
-                resultDiv.className = 'result incorrect';
-                return;
-            }
-
-            //  O ano é bissexto se For divisível por 4, mas não por 100, ou For divisível por 400.
-            if ((Ano % 4 === 0 && Ano % 100 !== 0) || (Ano % 400 === 0)) {
-                resultDiv.textContent = `${Ano} é um ano bissexto!`;
-                resultDiv.className = 'result correct';
-            } else {
-                resultDiv.textContent = `${Ano} não é um ano bissexto.`;
-                resultDiv.className = 'result incorrect';
-            }
+        if (!Ano) {
+          resultDiv.textContent = "Por favor, insira um ano!";
+          resultDiv.className = "result incorrect";
+          return;
         }
+
+        //  O ano é bissexto se For divisível por 4, mas não por 100, ou For divisível por 400.
+        if ((Ano % 4 === 0 && Ano % 100 !== 0) || Ano % 400 === 0) {
+          resultDiv.textContent = `${Ano} é um ano bissexto!`;
+          resultDiv.className = "result correct";
+        } else {
+          resultDiv.textContent = `${Ano} não é um ano bissexto.`;
+          resultDiv.className = "result incorrect";
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
