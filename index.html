@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos Simples em JavaScript</title>
+    <style>
+        body {
+            background-image: url(imagens/Fundo.jpg);
+            background-size: cover;
+                }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            width: 200px;
+            height: 50px;
+            border-radius: 5px;
+            align-items: center;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>JOGOS SIMPLES EM JAVASCRIPT</h1>
+    </div>
+
+    <div>
+        <button class="botoes" onclick="navigateTo('exercicio-1.html')">Jogo de Adivinhação</button>
+        <button class="botoes" onclick="navigateTo('exercicio-2.html')">Verificador de Ano Bissexto</button>
+        <button class="botoes" onclick="navigateTo('exercicio-3.html')">Calculadora de Média Escolar</button>
+        <button class="botoes" onclick="navigateTo('exercicio-4.html')">Calculadora de Gorjeta</button>
+        <button class="botoes" onclick="navigateTo('exercicio-5.html')">Saudação de Acordo com a Hora</button>
+    </div>
+
+    <script>
+        // Função JavaScript para redirecionar para a página correspondente
+        function navigateTo(page) {
+            window.location.href = page;  // Altera a localização para a página indicada
+        }
+    </script>
+</body>
+</html>
