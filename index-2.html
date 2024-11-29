@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogos Simples em JavaScript</title>
+    <style>
+      body {
+        background-image: url(imagens/Fundo.jpg),
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        background-size: cover;
+        background-position: center; /* Centraliza a imagem */
+        background-attachment: fixed; /* Deixa a imagem fixa ao rolar a página */
+        height: 100vh; /* Garantir que a altura seja 100% da tela */
+        margin: 0; /* Remove margens padrão do body */
+      }
+
+      h1 {
+        font-family: "Arial", sans-serif; /* Escolha a fonte desejada */
+        font-size: 4em; /* Aumenta o tamanho da fonte */
+        color: white; /* Cor do texto */
+        text-align: center; /* Centraliza o título */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destacar o texto */
+        margin-top: 20px; /* Espaço superior */
+      }
+
+      .botoes {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        width: 350px;
+        height: 100px;
+        border-radius: 5px;
+        justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        align-items: center; /* Centraliza o conteúdo verticalmente */
+        color: black;
+        margin-bottom: 10px;
+        margin-left: 200px;
+      }
+
+      button {
+        width: 100%;
+        height: 100%;
+        font-size: 22px;
+        text-align: center; /* Garante que o texto fique centralizado */
+        padding: 0; /* Remove qualquer padding interno */
+        box-sizing: border-box; /* Garante que o padding não afete o tamanho do botão */
+        background-color: rgb(124, 240, 101);
+        transition: background-color 0.3s; /* Efeito de transição ao passar o mouse */
+      }
+
+      button:hover {
+        background-color: #ddd; /* Efeito de hover */
+      }
+
+      #saudacao-container {
+        text-align: center;
+        margin-top: 100px;
+        font-size: 2.5em;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>JOGOS SIMPLES EM JAVASCRIPT</h1>
+    </div>
+
+    <!-- Área de Saudação -->
+    <div id="saudacao-container">
+      <p id="saudacao">Carregando saudação...</p>
+    </div>
+
+    <div>
+      <button class="botoes" onclick="navigateTo('exercicio-1.html')">
+        Jogo de Adivinhação
+      </button>
+      <button class="botoes" onclick="navigateTo('exercicio-2.html')">
+        Verificador de Ano Bissexto
+      </button>
+      <button class="botoes" onclick="navigateTo('exercicio-3.html')">
+        Calculadora de Média Escolar
+      </button>
+      <button class="botoes" onclick="navigateTo('exercicio-4.html')">
+        Calculadora de Gorjeta
+      </button>
+      <button class="botoes" onclick="navigateTo('exercicio-5.html')">
+        Saudação de Acordo com a Hora
+      </button>
+    </div>
+
+    <script>
+      // Função JavaScript para redirecionar para a página correspondente
+      function navigateTo(page) {
+        window.location.href = page; // Altera a localização para a página indicada
+      }
+
+      // Função para determinar a saudação com base na hora do dia
+      function obterSaudacao() {
+        const hora = new Date().getHours(); // Pega a hora atual
+        let saudacao = "";
+
+        // Define a saudação de acordo com a hora do dia
+        if (hora >= 0 && hora < 12) {
+          saudacao = "Bom dia!";
+        } else if (hora >= 12 && hora < 18) {
+          saudacao = "Boa tarde!";
+        } else {
+          saudacao = "Boa noite!";
+        }
+
+        // Exibe a saudação no parágrafo com id "saudacao"
+        document.getElementById("saudacao").textContent = saudacao;
+      }
+
+      // Chama a função ao carregar a página
+      window.onload = obterSaudacao;
+    </script>
+  </body>
+</html>
